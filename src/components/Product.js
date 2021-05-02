@@ -11,7 +11,10 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles({
   root: {
     maxWidth: 295,
-    minHeight: 390,
+    minHeight: 420,
+    maxHeight: 420,
+    padding: "10px",
+    marginBottom: "10px",
     textDecoration: "none",
   },
 });
@@ -28,24 +31,12 @@ const Product = () => {
           <Link to={`/product/${product.id}`} className="product__link">
             <Card className={classes.root} key={product.id}>
               <CardActionArea>
-                <CardMedia
-                  component="img"
-                  alt="Contemplative Reptile"
-                  height="250"
-                  margin="30"
-                  image={product.image}
-                  title="Contemplative Reptile"
-                />
+                <div className="productImg__container">
+                  <img className="product__image" src={product.image} alt="" />
+                </div>
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
+                  <Typography gutterBottom variant="h6" component="h2">
                     {product.title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                  >
-                    {product.description}
                   </Typography>
                 </CardContent>
               </CardActionArea>
