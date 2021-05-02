@@ -28,7 +28,7 @@ const Product = () => {
         <h1>Loading...</h1>
       ) : (
         products.map((product) => (
-          <Link to={`/product/${product.id}`} className="product__link">
+          <Link to={`/product/${product.id}`} className="link">
             <Card className={classes.root} key={product.id}>
               <CardActionArea>
                 <div className="productImg__container">

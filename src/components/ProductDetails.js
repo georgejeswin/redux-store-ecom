@@ -5,6 +5,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
 import { selectedProduct } from "../redux/actions/productActions";
+import { Chip } from "@material-ui/core";
 
 const ProductDetails = () => {
   const { productId } = useParams();
@@ -29,7 +30,9 @@ const ProductDetails = () => {
           </div>
           <div className="productDetails__right">
             <h1 className="productDetail__name">{product.title}</h1>
-            <h2 className="productDetail__category">{product.category}</h2>
+            {/* <h2 className="productDetail__category">{product.category}</h2> */}
+            <Chip label={product.category} />
+
             <h3 className="productDetail__description">
               {product.description}
             </h3>
