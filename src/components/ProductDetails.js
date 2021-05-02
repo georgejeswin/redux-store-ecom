@@ -4,7 +4,10 @@ import { useParams } from "react-router";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
-import { selectedProduct } from "../redux/actions/productActions";
+import {
+  removeSelectedProduct,
+  selectedProduct,
+} from "../redux/actions/productActions";
 import { Chip } from "@material-ui/core";
 
 const ProductDetails = () => {
@@ -18,8 +21,12 @@ const ProductDetails = () => {
     dispatch(selectedProduct(response.data));
   };
   useEffect(() => {
-    fetchProductDetails();
-  }, []);
+    if (productId && product !== "") fetchProductDetails();
+
+    return () => {
+      dispatch(removeSelectedProduct());
+    };
+  }, [dispatch]);
   //console.log(product);
   return (
     <>
